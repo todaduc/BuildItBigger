@@ -7,3 +7,7 @@
 /build
 /captures
 .externalNativeBuild
+/gradle.properties
+javaJokeLib/libs/
+.gradle/3.3/
+/.gradle/
