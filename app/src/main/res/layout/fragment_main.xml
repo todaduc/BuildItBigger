@@ -23,7 +23,7 @@
         android:onClick="tellJoke"
         android:text="@string/button_text"
 
-        />
+        tools:ignore="OnClick" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"

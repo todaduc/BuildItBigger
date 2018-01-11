@@ -1,5 +1,6 @@
 package com.themener.buiditbigger;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,13 +9,14 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.todaduc.javajokelib.JokeProvider;
+import com.todaduc.jokedisplayerlib.JokeDisplayActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_joke);
+        setContentView(R.layout.activity_main);
     }
 
 
@@ -40,8 +42,13 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
     public void tellJoke(View view) {
-        Toast.makeText(this, (new JokeProvider()).returnAJoke(), Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(this, JokeDisplayActivity.class);
+        String thePassedJoke = (new JokeProvider()).returnAJoke();
+        intent.putExtra("joke", thePassedJoke);
+        startActivity(intent);
 
     }
 }
